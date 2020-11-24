@@ -334,7 +334,7 @@ around_IN
 reform_NN
 4_CD
 you've_PPSS
-ï¿½_BEM
+’_BEM
 bill_NN
 2_CD
 came_VBD
@@ -390,7 +390,7 @@ finally_RB
 nuclear_JJ
 already_RB
 live_VB
-ï¿½_NIL
+’_NIL
 credit_NN
 sure_RB
 trade_NN
@@ -516,7 +516,7 @@ basic_JJ
 10_CD
 number_NN
 challenges_NNS
-ï¿½_RBR
+—_RBR
 weapons_NNS
 cars_NNS
 difference_NN
@@ -724,7 +724,7 @@ succeed_VB
 right_RB
 wasn't_BEDZ
 increase_VB
-ï¿½_RBR
+–_RBR
 whole_JJ
 issues_NNS
 drugs_NNS
@@ -933,7 +933,7 @@ wanted_VBD
 stood_VBD
 iran_NP
 open_VB
-ï¿½_RN
+’_RN
 billions_NNS
 pay_NN
 hand_NN
@@ -982,7 +982,7 @@ prevent_VB
 leader_NN
 institutions_NNS
 legislation_NN
-ï¿½_VBZ
+–_VBZ
 profits_NNS
 wealthy_JJ
 homeowners_NNS
