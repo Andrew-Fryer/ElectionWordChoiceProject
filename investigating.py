@@ -9,15 +9,33 @@ decp_word = pd.read_csv('deceptionword.csv', header=None)
 decp_word_list = decp_word[0].values.tolist()
 decp_word_mat = pd.read_csv('deceptiondocword.csv', header=None, names=decp_word_list)
 
-df = pd.concat([speeches, freq_word_mat, decp_word_mat, winners], axis=1)
-#df.to_csv('full_data.csv')
+# Do stats
+print(freq_word_mat['the_AT'].describe())
+print(decp_word_mat['i'].describe())
+print(winners['isWin'].describe())
+
+# Do normalization
+from sklearn import preprocessing
+min_max_scaler = preprocessing.MinMaxScaler()
+def normalize(df):
+  x = df.values
+  x_scaled = min_max_scaler.fit_transform(x)
+  return pd.DataFrame(x_scaled, columns=df.columns)
+
+# Do stats Again
+print(normalize(freq_word_mat)['the_AT'].describe())
+print(normalize(decp_word_mat)['i'].describe())
+print(normalize(winners)['isWin'].describe())
+
+df = pd.concat([normalize(freq_word_mat), normalize(decp_word_mat), winners], axis=1)
+df.to_csv('full_data.csv')
 
 correlation_matrix = df.corr()
-#correlation_matrix.to_csv('correlation_matrix.csv')
+correlation_matrix.to_csv('correlation_matrix.csv')
 
 import matplotlib.pyplot as plt
 
 plt.matshow(correlation_matrix)
-#plt.savefig('correlation_matrix.png')
+plt.savefig('correlation_matrix.png')
 
 
