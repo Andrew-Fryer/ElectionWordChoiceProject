@@ -10,3 +10,5 @@ decp_word_list = decp_word[0].values.tolist()
 decp_word_mat = pd.read_csv('deceptiondocword.csv', header=None, names=decp_word_list)
 
 df = pd.concat([speeches, freq_word_mat, decp_word_mat, winners], axis=1)
+
+#df.to_csv('full_data.csv')
