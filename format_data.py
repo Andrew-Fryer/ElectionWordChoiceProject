@@ -36,4 +36,10 @@ def train_test_by_election(df):
   # now divide the entire dataset according that split
   train = df[df['election'].isin(training_elections)].drop(columns=['election'])
   test = df[df['election'].isin(testing_elections)].drop(columns=['election'])
-  return train, test
+
+  y_train = train['isWin'].values
+  X_train = train.drop(columns=['isWin']).values
+  y_test = test['isWin'].values
+  X_test = test.drop(columns=['isWin']).values
+
+  return X_train, X_test, y_train, y_test
