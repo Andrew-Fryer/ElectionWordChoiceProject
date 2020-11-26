@@ -20,5 +20,18 @@ def normalize(df):
 # pull election ids from speech names
 import re
 electionPattern = re.compile('[0-9]*[a-z]*')
-elections = [electionPattern.match(x).group() for x in df['speech']]
+elections = pd.DataFrame([electionPattern.match(x).group() for x in speeches['speech']], columns=['election'])
 
+# split data into training and testing data
+import random
+def train_test_by_election(df):
+  # first we will split the 14 election results into 10 for training and 4 for testing
+  testing_elections = []
+  unique_elections = list(set(elections['election'].values))
+  for i in range(4):
+    choosen = unique_elections[random.randint(0, len(unique_elections) - 1)]
+    unique_elections.remove(choosen)
+    testing_elections.append(choosen)
+  training_elections = unique_elections
+  # now divide the entire dataset according that split
+  return df[df['election'].isin(training_elections)], df[df['election'].isin(testing_elections)]
