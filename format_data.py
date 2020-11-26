@@ -34,4 +34,6 @@ def train_test_by_election(df):
     testing_elections.append(choosen)
   training_elections = unique_elections
   # now divide the entire dataset according that split
-  return df[df['election'].isin(training_elections)], df[df['election'].isin(testing_elections)]
+  train = df[df['election'].isin(training_elections)].drop(columns=['election'])
+  test = df[df['election'].isin(testing_elections)].drop(columns=['election'])
+  return train, test

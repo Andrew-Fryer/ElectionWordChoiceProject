@@ -7,9 +7,6 @@ df = pd.concat([elections, normalize(freq_word_mat), normalize(decp_word_mat), w
 
 train, test = train_test_by_election(df)
 
-train = train.drop(columns=['election'])
-test = test.drop(columns=['election'])
-
 y_train = train['isWin'].values
 X_train = train.drop(columns=['isWin']).values
 y_test = test['isWin'].values
