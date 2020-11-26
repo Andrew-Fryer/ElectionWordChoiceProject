@@ -24,6 +24,23 @@ elections = pd.DataFrame([electionPattern.match(x).group() for x in speeches['sp
 
 # split data into training and testing data
 import random
+def train_test(df):
+  is_train_list = []
+  is_test_list = []
+  for i in range(len(df['isWin'])):
+    is_test = random.uniform(0, 1) > 0.7
+    is_train_list.append(not is_test)
+    is_test_list.append(is_test)
+  train = df[is_train_list].drop(columns=['election'])
+  test = df[is_test_list].drop(columns=['election'])
+
+  y_train = train['isWin'].values
+  X_train = train.drop(columns=['isWin']).values
+  y_test = test['isWin'].values
+  X_test = test.drop(columns=['isWin']).values
+
+  return X_train, X_test, y_train, y_test
+
 def train_test_by_election(df):
   # first we will split the 14 election results into 10 for training and 4 for testing
   testing_elections = []
