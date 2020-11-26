@@ -3,8 +3,7 @@ from sklearn.neural_network import MLPClassifier
 
 from format_data import *
 
-# only use decp for now
-df = pd.concat([elections, normalize(decp_word_mat), winners], axis=1)
+df = pd.concat([elections, normalize(freq_word_mat), normalize(decp_word_mat), winners], axis=1)
 
 train, test = train_test_by_election(df)
 
