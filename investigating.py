@@ -43,6 +43,7 @@ plt.savefig('correlation_matrix.png')
 df.insert(0, 'speech', speeches['speech'])
 
 # add election ids to df
+import re
 electionPattern = re.compile('[0-9]*[a-z]*')
 df['election'] = [electionPattern.match(x).group() for x in df['speech']]
 
