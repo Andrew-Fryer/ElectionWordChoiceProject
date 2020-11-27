@@ -2,7 +2,7 @@ import pandas as pd
 
 from format_data import *
 
-df = pd.concat([normalize(freq_word_mat), normalize(decp_word_mat), winners], axis=1) # try with election data too
+df = pd.concat([normalize(freq_word_mat), normalize(decp_word_mat)], axis=1) # try with election data too
 
 from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=num_elections).fit(df.values)
