@@ -21,6 +21,7 @@ def normalize(df):
 import re
 electionPattern = re.compile('[0-9]*[a-z]*')
 elections = pd.DataFrame([electionPattern.match(x).group() for x in speeches['speech']], columns=['election'])
+num_elections = len(set(elections['election'].values))
 
 # split data into training and testing data
 import random
