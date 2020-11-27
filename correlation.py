@@ -9,4 +9,5 @@ correlation_matrix = df.corr()
 import matplotlib.pyplot as plt
 
 plt.matshow(correlation_matrix)
+plt.savefig('correlation_matrix.png')
 
