@@ -7,7 +7,7 @@ df = pd.concat([elections, normalize(freq_word_mat), normalize(decp_word_mat), w
 
 
 def score():
-  X_train, X_test, y_train, y_test = train_test_by_election(df)
+  X_train, X_test, y_train, y_test = train_test(df)
 
   clf = SVC().fit(X_train, y_train)
 
