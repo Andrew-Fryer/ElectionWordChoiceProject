@@ -8,7 +8,7 @@ def score():
 
   X_train, X_test, y_train, y_test = train_test(df)
 
-  clf = MLPClassifier(hidden_layer_sizes=(10), max_iter=200).fit(X_train, y_train)
+  clf = MLPClassifier(hidden_layer_sizes=(100), max_iter=1000).fit(X_train, y_train)
 
   score = clf.score(X_test, y_test)
   return score
